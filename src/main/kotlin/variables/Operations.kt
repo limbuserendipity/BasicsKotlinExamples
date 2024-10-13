@@ -1,5 +1,5 @@
 // Пакет 'variables', который может содержать различные функции и классы, связанные с переменными и их операциями.
-package variables
+package org.example.variables
 
 import java.util.*
 import kotlin.random.Random // Импортируем библиотеку для работы со случайными числами (не используется в данном коде, можно удалить).

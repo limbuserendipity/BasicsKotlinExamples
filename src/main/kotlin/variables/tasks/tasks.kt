@@ -1,4 +1,4 @@
-package variables.tasks
+package org.example.variables.tasks
 
 import kotlin.random.Random
 

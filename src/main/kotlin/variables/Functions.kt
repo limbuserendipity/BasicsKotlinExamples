@@ -1,4 +1,4 @@
-package variables
+package org.example.variables
 
 import java.util.*
 import kotlin.math.*
