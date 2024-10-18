@@ -1,4 +1,4 @@
-package org.example.variables.tasks
+package variables.tasks
 
 import kotlin.random.Random
 
@@ -6,7 +6,7 @@ import kotlin.random.Random
     Для заданий можете использовать readLine и Random
  */
 fun main(){
-    
+    task9()
 }
 
 /*
@@ -16,7 +16,9 @@ Task1: Приветствие по имени
 Подсказка: Используй функцию println() для вывода текста.
 */
 fun task1() {
-
+    println("как тебя зовут?")
+    val name = readLine()
+    println("Привет, $name !")
 }
 
 /*
@@ -26,6 +28,10 @@ Task2: Сумма двух чисел
 Подсказка: Используй оператор + для сложения чисел.
 */
 fun task2() {
+    val num1 = Random.nextInt(100)
+    val num2 = Random.nextInt(100)
+    println("$num1 + $num2 = ${num1+ num2}")
+
 }
 
 /*
@@ -35,14 +41,21 @@ Task3: Площадь прямоугольника
 Подсказка: Площадь = длина * ширина.
 */
 fun task3() {
+    val lenght = Random.nextInt(30)
+    val widtht = Random.nextInt(20)
+    println("длина $lenght см, ширина $widtht см, площадь = ${lenght * widtht}")
 }
 
 /*
 Task4: Обмен значениями переменных
 
 Задание: Создай две переменные a и b с разными значениями. Поменяй их значения местами и выведи новые значения на экран.
+Подсказка:
 */
 fun task4() {
+    var a = Random.nextInt(100)
+    var b = Random.nextInt(100)
+    println("a = $b")
 }
 
 /*
@@ -52,6 +65,9 @@ Task5: Вычисление возраста
 Подсказка: Возраст = текущий год - год рождения.
 */
 fun task5() {
+    val now = 2024
+    val birthday = 2010
+    println("возраст: ${now - birthday}")
 }
 
 /*
@@ -61,6 +77,9 @@ Task6: Конвертация валют
 Подсказка: Используй умножение для конвертации.
 */
 fun task6() {
+    val euro = Random.nextInt(100)
+    val doll = euro * 1.1
+    println("$euro€ = $doll$")
 }
 
 /*
@@ -70,6 +89,9 @@ Task7: Длина окружности
 Подсказка: Длина окружности = 2 * π * радиус. Используй значение π = 3.14.
 */
 fun task7() {
+    val radius = Random.nextInt(100)
+    val lenght = 2 * 3.14 * radius
+    println("радиус: $radius, длина окр: $lenght")
 }
 
 /*
@@ -79,7 +101,12 @@ Task8: Среднее арифметическое трех чисел
 Подсказка: Среднее = (число1 + число2 + число3) / 3.
 */
 fun task8() {
+    val num1 = Random.nextInt(10)
+    val num2 = Random.nextInt(10)
+    val num3 = Random.nextInt(10)
 
+    val sum  = (num1 + num2 + num3) / 3
+    println(sum)
 }
 
 /*
@@ -89,6 +116,9 @@ Task9: Количество минут в заданных часах
 Подсказка: В 1 часе 60 минут.
 */
 fun task9() {
+    val hours = Random.nextInt(100)
+    val minutes = hours * 60
+    println("$hours часов = $minutes минут")
 }
 
 /*
@@ -98,6 +128,10 @@ Task10: Формирование предложения
 Подсказка: Используй конкатенацию строк для формирования предложения.
 */
 fun task10() {
+    val color = "оранжевый"
+    val animal = "ежик"
+    val food = "яблоко"
+    println("Мой любимый цвет - $color, я люблю $animal, и моя любимая еда - $food")
 }
 
 
