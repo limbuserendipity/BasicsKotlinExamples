@@ -22,7 +22,7 @@ fun main() {
 
 
     // Вызов функции с именованными аргументами
-    calculateArea(width = 5, height = 10)
+    calculateArea(width = 5, 10)
     calculateArea(height = 7, width = 3) // Порядок аргументов не важен благодаря именованию
 
     // Вызов функций с одинаковыми именами
