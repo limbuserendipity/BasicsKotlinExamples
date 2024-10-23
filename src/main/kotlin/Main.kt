@@ -6,7 +6,9 @@ package org.example
    Группа: ИТУ1
 
  */
-
+//
+// Гаус Степан XdXdXdX
+// группа ИТУ1
 fun main() {
 
 }

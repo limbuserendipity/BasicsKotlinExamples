@@ -9,6 +9,7 @@ package org.example.algorithms
 
 fun main(){
 
+    println(findMin( listOf(5, 3, 8, 1, 4)))
 }
 
 /*
@@ -31,9 +32,18 @@ fun findMax(list : List<Int>): Int {
  */
 
 fun findMin(list : List<Int>): Int {
-    return -1
-}
+ var list = listOf(3, 2, 1, 8, 16, 9)
+  var min = list[0]
+    list.forEach{
+        if(it < min ) min = it
+    }
 
+
+    return min
+}
+fun ew1() {
+
+}
 /*
     Подсчет суммы всех чисел
  */

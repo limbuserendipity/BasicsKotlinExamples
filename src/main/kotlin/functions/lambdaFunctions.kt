@@ -11,7 +11,7 @@ import kotlin.random.Random
  */
 
 fun main() {
-    lambdaExample5()
+    lambdaExample4()
 }
 
 /*

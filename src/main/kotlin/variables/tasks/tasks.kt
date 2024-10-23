@@ -6,7 +6,7 @@ import kotlin.random.Random
     Для заданий можете использовать readLine и Random
  */
 fun main(){
-    task9()
+    task1()
 }
 
 /*
