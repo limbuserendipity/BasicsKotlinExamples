@@ -19,6 +19,9 @@ fun main() {
     Когда лямбда выражение находиться внутри переменной её называют лямбда функцией
  */
 fun lambdaExample1() {
+
+
+
     val hw = { println("Hello World") }
     hw()
 
@@ -29,6 +32,7 @@ fun lambdaExample1() {
         // Возвращаем значение
         Random.nextInt()
     }
+
     // Мы можем обратиться к переменной внутри лямбды с помощью it
     val getRandomNumberByRange: (IntRange) -> Int = { it.random() }
 
