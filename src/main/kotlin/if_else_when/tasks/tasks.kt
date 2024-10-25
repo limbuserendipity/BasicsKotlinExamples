@@ -148,6 +148,7 @@ fun task8() {
     val op = readLine()!!.toString()
     print("Введите второе число: ")
     val num2 = readLine()!!.toInt()
+
     if (op == "+") {
         println(num1 + num2)
     }
