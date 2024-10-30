@@ -9,8 +9,6 @@ package org.example.algorithms
 
 fun main(){
 
-    println(findMax(listOf(1,2,6,3,2,1)))
-
 }
 
 /*
