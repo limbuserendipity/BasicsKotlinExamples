@@ -8,7 +8,9 @@ package org.example.algorithms.sorting
  */
 
 fun main(){
-
+    val list = mutableListOf(1, 3, 9, 5, 7)
+    bubbleSort(list)
+    println(list)
 }
 /*
     Установить swapped = true.

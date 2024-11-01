@@ -14,7 +14,8 @@ package org.example.algorithms.search
 
 
 fun main(){
-
+    val list = listOf(1, 5, 9, 8, 3).sorted()
+    println(binarySearch(list, 8))
 }
 
 /*
@@ -41,7 +42,7 @@ fun binarySearch(array: List<Int>, target: Int) : Int{
         else if (array[mid] < target) {
             left = mid + 1
         }
-        else if (array[mid] > target) {
+        else {
             right = mid - 1
         }
     }
