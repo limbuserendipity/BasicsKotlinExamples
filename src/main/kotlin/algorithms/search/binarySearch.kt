@@ -14,7 +14,11 @@ package org.example.algorithms.search
 
 
 fun main(){
-
+    val list = listOf(2, 4, 52, 69, 1500)
+    val target = 1500
+    binarySearch(list, target)
+    val input = binarySearch(list, target)
+    println(input)
 }
 
 /*
@@ -29,7 +33,22 @@ fun main(){
     Если цикл завершился и элемент не найден, верни -1.
  */
 
+fun binarySearch(array: List<Int>, target: Int) : Int {
+    var left = 0
+    var right = array.size - 1
+    while (left <= right) {
 
-fun binarySearch(array: List<Int>, target: Int) : Int{
+        val mid = (left + right) / 2
+        if (array[mid] == target) {
+            return mid
+        }
+        if (array[mid] < target) {
+            left = mid + 1
+        }
+        if (array[mid] > target) {
+            right = mid - 1
+        }
+    }
     return -1
+
 }
