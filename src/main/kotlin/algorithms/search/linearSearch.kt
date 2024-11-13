@@ -1,8 +1,6 @@
 package org.example.algorithms.search
 
 fun main() {
-    val list = listOf(4, 6, 2, 6, 8, 5, 3, 2, 1)
-    linearSearch(list, 1)
 
 }
 
@@ -19,10 +17,6 @@ fun main() {
 
 
 fun linearSearch(list: List<Int>, target: Int): Int {
-    var index = 0
-    list.forEach {
-        if(it == target) return index
-        index = index + 1
-    }
+
     return -1
 }
