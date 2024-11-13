@@ -33,22 +33,15 @@ fun main(){
     Если цикл завершился и элемент не найден, верни -1.
  */
 
-fun binarySearch(array: List<Int>, target: Int) : Int {
+
+fun binarySearch(array: List<Int>, target: Int): Int {
     var left = 0
     var right = array.size - 1
     while (left <= right) {
-
         val mid = (left + right) / 2
-        if (array[mid] == target) {
-            return mid
-        }
-        if (array[mid] < target) {
-            left = mid + 1
-        }
-        if (array[mid] > target) {
-            right = mid - 1
-        }
+        if (array[mid] == target) return mid
+        if (array[mid] < target) left = mid + 1
+        if (array[mid] > target) right = mid - 1
     }
     return -1
-
 }
