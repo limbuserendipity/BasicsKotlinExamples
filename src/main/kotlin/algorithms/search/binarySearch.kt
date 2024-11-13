@@ -13,7 +13,7 @@ package org.example.algorithms.search
  */
 
 
-fun main(){
+fun main() {
 
 }
 
@@ -30,6 +30,7 @@ fun main(){
  */
 
 
-fun binarySearch(array: List<Int>, target: Int) : Int{
+fun binarySearch(array: List<Int>, target: Int): Int {
+
     return -1
 }

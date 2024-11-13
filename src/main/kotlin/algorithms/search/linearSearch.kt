@@ -1,7 +1,6 @@
 package org.example.algorithms.search
 
-fun main(){
-
+fun main() {
 
 }
 
@@ -17,6 +16,7 @@ fun main(){
  */
 
 
-fun linearSearch(){
+fun linearSearch(list: List<Int>, target: Int): Int {
 
+    return -1
 }

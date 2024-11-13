@@ -38,5 +38,9 @@ fun findMin(list : List<Int>): Int {
     Подсчет суммы всех чисел
  */
 fun calculateSum(list : List<Int>): Int {
-    return 0
+    var sum = 0
+    list.forEach { element ->
+        sum = sum + element
+    }
+    return sum
 }
