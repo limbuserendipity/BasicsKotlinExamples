@@ -13,8 +13,13 @@ package org.example.algorithms.search
  */
 
 
-fun main(){
-
+fun main() {
+    // [1, 2, 2, 3, 4, 5, 6, 6, 8]
+    val list = listOf(4, 6, 2, 6, 8, 5, 3, 2, 1).sorted()
+    val target = 4
+    val index = binarySearch(list, target)
+    println(list)
+    println(index)
 }
 
 /*
@@ -30,6 +35,14 @@ fun main(){
  */
 
 
-fun binarySearch(array: List<Int>, target: Int) : Int{
+fun binarySearch(array: List<Int>, target: Int): Int {
+    var left = 0
+    var right = array.size - 1
+    while (left <= right) {
+        val mid = (left + right) / 2
+        if (array[mid] == target) return mid
+        if (array[mid] < target) left = mid + 1
+        if (array[mid] > target) right = mid - 1
+    }
     return -1
 }

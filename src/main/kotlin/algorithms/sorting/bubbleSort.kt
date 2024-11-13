@@ -8,6 +8,19 @@ package org.example.algorithms.sorting
  */
 
 fun main(){
+    val list = mutableListOf(4,2,6,8,8,2,5,3,1,3)
+    bubbleSort(list)
+    println(list)
+
+    /*
+           4,2,6,8,8,2,5,3,1,3
+           2,4,6,8,8,2,5,3,1,3
+           2,4,6,8,2,8,5,3,1,3
+           2,4,6,8,2,5,8,3,1,3
+           2,4,6,8,2,5,3,8,1,3
+           2,4,6,8,2,5,3,8,3,1
+     */
+
 
 }
 /*
@@ -21,7 +34,16 @@ fun main(){
     Завершить сортировку, когда цикл while завершится.
  */
 fun bubbleSort(array: MutableList<Int>){
-
+    var swapped = true
+    while (swapped){
+        swapped = false
+        for (i in 1..array.size-1){
+            if(array[i] < array[i-1]){
+                swap(array, i, i-1)
+                swapped = true
+            }
+        }
+    }
 }
 /*
     Создать переменную temp и присвоить ей значение array[index1].
@@ -29,5 +51,7 @@ fun bubbleSort(array: MutableList<Int>){
     Присвоить array[index2] значение temp.
  */
 fun swap(array: MutableList<Int>, index1: Int, index2: Int) {
-
+    val temp = array[index1]
+    array[index1] = array[index2]
+    array[index2] = temp
 }

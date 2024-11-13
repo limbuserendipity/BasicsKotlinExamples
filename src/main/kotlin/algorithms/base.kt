@@ -8,35 +8,39 @@ package org.example.algorithms
  */
 
 fun main(){
-
+    calculateSum(listOf(4, 1, 4, 3, 2))
 }
 
 /*
     Нахождение максимального числа в списке
  */
 
-fun findMax(list : List<Int>): Int {
-
-    var max = list[0]
-
-    list.forEach { element ->
-        if(element > max) max = element
-    }
-
-    return max
-}
+//fun findMax(list : List<Int>): Int {
+//
+//    var max = list[0]
+//
+//    list.forEach { element ->
+//        if(element > max) max = element
+//    }
+//
+//    return max
+//}
 
 /*
     Нахождение минимального числа в списке
  */
 
-fun findMin(list : List<Int>): Int {
-    return -1
-}
+//fun findMin(list : List<Int>): Int {
+//    return -1
+//}
 
 /*
     Подсчет суммы всех чисел
  */
 fun calculateSum(list : List<Int>): Int {
-    return 0
+    var sum = 0
+    list.forEach { element ->
+        sum = sum + element
+    }
+    return sum
 }
