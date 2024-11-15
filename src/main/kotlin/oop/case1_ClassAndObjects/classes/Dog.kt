@@ -9,6 +9,11 @@ class Dog() {
         println("Осторожно собака может укусить!")
     }
 
+    constructor(name : String) : this(){
+        this.name = name
+    }
+
+
     constructor(name : String, breed: String) : this() {
         this.name = name
         this.breed = breed
