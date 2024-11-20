@@ -41,7 +41,6 @@ class Car(
     }
 }
 
- */
 
 // Класс, представляющий автомобиль
 class Car(val brand: String, val model: String, val year: Int) {
