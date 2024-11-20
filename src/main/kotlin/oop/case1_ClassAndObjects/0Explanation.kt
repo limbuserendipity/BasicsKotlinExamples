@@ -1,4 +1,4 @@
-package oop.case1_ClassAndObjects
+package org.example.oop.case1_ClassAndObjects
 
 /*
 
