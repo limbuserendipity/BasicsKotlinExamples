@@ -1,7 +1,11 @@
 package functions.tasks
 
-fun main(){
+import kotlin.random.Random
 
+fun main(){
+//    task1()
+    task2()
+    task3()
 }
 
 /*
@@ -11,6 +15,21 @@ Task1: Игра "Угадай число"
 Подсказка: Используй цикл `while` для повторных попыток и условные операторы `if`/`else` для обработки подсказок пользователя.
 */
 fun task1() {
+    val rand = Random.nextInt(1, 1000)
+    while (true) {
+        print("Угадайте число от 1 до 1000: ")
+        val num = readLine()!!.toInt()
+        if (num == rand) {
+            println("Поздравляем, вы угадали!")
+            break
+        }
+        else if (num > rand) {
+            println("Ваше число больше загаданного.")
+        }
+        else if (num < rand) {
+            println("Ваше число меньше загаданного.")
+        }
+    }
 }
 
 /*
@@ -20,8 +39,17 @@ Task2: Сортировка списка с использованием фун�
 Подсказка: Используй функцию `sortedWith` и передавай лямбда-выражение для задания порядка сортировки.
 */
 fun task2() {
+    fun sortList(numbers: List<Int>, comparator: (Int, Int) -> Int): List<Int> {
+        return numbers.sortedWith(comparator)
+    }
 
+    val numbers = listOf(1, 3, 5, 10)
 
+    val ascendingOrder = sortList(numbers) { a, b -> a.compareTo(b) }
+    println("Сортировка по возрастанию: $ascendingOrder")
+
+    val descendingOrder = sortList(numbers) { a, b -> b.compareTo(a) }
+    println("Сортировка по убыванию: $descendingOrder")
 }
 
 /*
@@ -31,6 +59,12 @@ Task3: Чётные и нечётные числа
 Подсказка: Используй функцию `filter` для разделения списка на чётные и нечётные числа.
 */
 fun task3() {
+    fun getEvenAndOddNumbers(list: List<Int>, v1: Int): List<Int> {
+        val result = list.filter { it % 2 == v1 }
+        return result
+    }
+    println("Чётные числа: ${getEvenAndOddNumbers(listOf(1,2,3,4,5,6,7,8,9,10), 0)}")
+    println("Нечётные числа: ${getEvenAndOddNumbers(listOf(1,2,3,4,5,6,7,8,9,10), 1)}")
 }
 
 /*

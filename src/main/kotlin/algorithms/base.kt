@@ -31,7 +31,14 @@ fun findMax(list : List<Int>): Int {
  */
 
 fun findMin(list : List<Int>): Int {
-    return -1
+
+    var min = list[0]
+
+    list.forEach { element ->
+        if(element < min) min = element
+    }
+
+    return min
 }
 
 /*
