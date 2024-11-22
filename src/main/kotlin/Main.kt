@@ -2,8 +2,8 @@ package org.example
 
 /*
 
-   Автор: Имя Фамилия
-   Группа: ИТУ1
+   Автор: Паутов Олег
+   Группа: ИТУ2
 
  */
 
@@ -15,5 +15,4 @@ fun main() {
     }
     println(list)
     println("${list.min()} ${list.max()}")
-
 }

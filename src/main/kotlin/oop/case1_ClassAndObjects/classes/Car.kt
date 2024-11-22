@@ -3,7 +3,6 @@ package org.example.oop.case1_ClassAndObjects.classes
 class Car(
     var brand: String = "Неизвестная марка",
 ) {
-
     val speedInfo : String
         get(){
             return when(brand){
@@ -17,6 +16,4 @@ class Car(
     fun drive(){
         println("Едем $speedInfo")
     }
-
-
 }
