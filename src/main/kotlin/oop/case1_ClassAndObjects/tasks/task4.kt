@@ -12,14 +12,41 @@ package org.example.oop.case1_ClassAndObjects.tasks
     topStudent() — возвращает студента с наивысшей оценкой.
 
  */
-fun main() {
+class Student(val name: String, val id: Int, val grade: Double)
 
+class Course {
+    private val students = mutableListOf<Student>()
+
+    fun addStudent(student: Student) {
+        students.add(student)
+    }
+
+    fun averageGrade(): Double {
+        return if (students.isEmpty()) {
+            0.0
+        } else {
+            students.map { it.grade }.average()
+        }
+    }
+
+    fun topStudent(): Student? {
+        return students.maxByOrNull { it.grade }
+    }
 }
 
-class Student(
-    var name : String,
-    var id : Int,
-    var grade : Int
-)
 
-class Course () {}
+fun main() {
+    val course = Course()
+
+    val student1 = Student("Олег", 228, 999.9)
+    val student2 = Student("Илья", 2, -2.0)
+    val student3 = Student("Литвин", 3, 1234567890.0)
+
+    course.addStudent(student1)
+    course.addStudent(student2)
+    course.addStudent(student3)
+
+    println("Средняя оценка: ${course.averageGrade()}")
+    println("Студент с наивысшей оценкой: ${course.topStudent()}")
+}
+
