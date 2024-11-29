@@ -10,3 +10,29 @@ package org.example.oop.case1_ClassAndObjects.tasks
     displayBalance() — выводит текущий баланс на счёте.
 
  */
+
+fun main() {
+    val Ivan : BankAccount = BankAccount(balance = 40.000, accountNumber = 403756985, ownerName = "Ivan")
+    Ivan.deposit(12.000)
+}
+class BankAccount(
+    var balance : Double,
+    var accountNumber : Int = 744573254,
+    var ownerName : String = "Неизвестно"
+) {
+    fun deposit(amount: Double) {
+        balance = balance + amount
+    }
+
+    fun withdraw(amount: Double) {
+        balance = balance - amount
+        if (amount > balance) {
+            println("Ошибка")
+        } else
+            println("Успешно")
+    }
+
+    fun displayBalance(amount: Double) {
+        println("$balance")
+    }
+}

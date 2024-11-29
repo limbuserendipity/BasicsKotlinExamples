@@ -12,3 +12,14 @@ package org.example.oop.case1_ClassAndObjects.tasks
     topStudent() — возвращает студента с наивысшей оценкой.
 
  */
+fun main() {
+
+}
+
+class Student(
+    var name : String,
+    var id : Int,
+    var grade : Int
+)
+
+class Course () {}
