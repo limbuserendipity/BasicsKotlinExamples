@@ -51,3 +51,76 @@ package org.example.oop.case1_ClassAndObjects.tasks
         Герой одержал победу! Все монстры повержены!
 
  */
+
+class Player(
+    val name: String,
+    var health: Int = 100,
+    val damage: Int,
+) {
+    fun attack(enemy: Monster) {
+        enemy.takeDamage(this, damage)
+    }
+    fun takeDamage(damager: Monster, dmg: Int) {
+        if ((health - dmg) <= 0) {
+            println("${damager.type} побеждает $name!")
+        } else {
+            println("${damager.type} атакует $name и наносит $dmg урона!\n" +
+                    "        У $name осталось $health здоровья.")
+        }
+    }
+}
+
+class Monster(
+    val type: String,
+    var health: Int = 100,
+    val damage: Int
+) {
+    fun attack(enemy: Player) {
+        enemy.takeDamage(this, damage)
+    }
+    fun takeDamage(damager: Player, dmg: Int) {
+        if ((health - dmg) <= 0) {
+            println("${damager.name} побеждает $type!")
+        } else {
+            println("${damager.name} атакует $type и наносит $dmg урона!\n" +
+                    "        У $type осталось $health здоровья.")
+        }
+    }
+}
+
+class Game(
+    val player: Player,
+    val monsters: List<Monster> = listOf()
+) {
+    fun start() {
+        println("Добро пожаловать в игру!\n" +
+                "Герой отправляется в опасное приключение!\n" +
+                "На пути стоят зловещие монстры: ")
+        for (monster: Monster in monsters) {
+            println("- ${monster.type} с ${monster.health} здоровья и ${monster.damage} урона")
+        }
+        println()
+    }
+}
+
+fun main() {
+    val player1 = Player(
+        name = "Илья",
+        damage = 25
+    )
+
+    val monster1 = Monster(
+        type = "Гоблин",
+        damage = 25
+    )
+    val monster2 = Monster(
+        type = "Орк",
+        damage = 25
+    )
+    val monster3 = Monster(
+        type = "Дракон",
+        damage = 15
+    )
+    val game = Game(player1, listOf(monster1, monster2, monster3))
+    game.start()
+}

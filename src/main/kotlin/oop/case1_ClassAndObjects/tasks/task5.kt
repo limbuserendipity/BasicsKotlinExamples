@@ -24,10 +24,10 @@ class ETicket(
     private var isUsed: Boolean = false
 ) {
     fun use() {
-        if (isUsed) {
+        if (!isUsed) {
+            isUsed = true
             println("✅ Билет успешно использован! Наслаждайтесь поездкой.")
             println()
-            isUsed = true
         } else {
             println("⚠ Билет уже активирован.")
             println()
