@@ -31,5 +31,4 @@ class Cat(
     fun catInfo(){
         println("$name цвета $color")
     }
-
 }
