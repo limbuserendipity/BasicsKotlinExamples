@@ -30,3 +30,63 @@ package org.example.oop.case1_ClassAndObjects.tasks
     Если питомец умирает, игра заканчивается, и выводится сообщение о смерти.
 
  */
+
+class Pet(
+    val name: String,
+    var hungerLevel: Int = 0,
+    var happinessLevel: Int = 100,
+    var isAlive: Boolean = true
+) {
+    fun start() {
+        while(true) {
+            Thread.sleep(5000)
+            hungerLevel += 1
+            happinessLevel -= 1
+            if (hungerLevel >= 100) {
+                println("Ваш питомец умер от голода.")
+            }
+            if (happinessLevel <= 0) {
+                println("Ваш питомец умер от нехватки счастья.")
+            }
+        }
+    }
+    fun status() {
+        println("Ваш питомец $name: ")
+        println("Статус: ${if (isAlive) "Жив" else "Умер"}")
+        println("Уровень голода: $hungerLevel")
+        println("Уровень счастья: $happinessLevel")
+        println()
+    }
+    fun checkLife() {
+        if (hungerLevel == 100) {
+            println("Ваш питомец умер от голода.")
+
+        }
+    }
+    fun play(time: Int) {
+        println("Вы играете с вашим питомцем...")
+        Thread.sleep((time * 1000).toLong())
+    }
+    fun feed(foodCount: Int) {
+        if (hungerLevel > 0) {
+            println("Вы успешно покормили своего питомца.")
+            if (hungerLevel - foodCount < 0) {
+                hungerLevel = 0
+            } else {
+                hungerLevel -= foodCount
+            }
+        } else if (hungerLevel == 0) {
+            println("Ваш питомец сыт!")
+        }
+    }
+}
+
+fun main() {
+    val pet1 = Pet(
+        name = "Илья"
+    )
+    pet1.start()
+    pet1.play(3)
+    pet1.feed(8)
+    pet1.status()
+}
