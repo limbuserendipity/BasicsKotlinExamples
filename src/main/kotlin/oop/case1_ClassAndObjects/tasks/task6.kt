@@ -51,3 +51,38 @@ package org.example.oop.case1_ClassAndObjects.tasks
         Герой одержал победу! Все монстры повержены!
 
  */
+class Player(
+    val name: String,
+    var health: Int = 100,
+    val damage: Int
+) {
+    fun attack (monster: Monster, dmg: Int) {
+        println("Игрок нанёс урон монстру!")
+        monster.health -= dmg
+    }
+}
+
+class Monster(
+    val type: String,
+    var health: Int,
+    var damage: Int
+) {
+    fun attack (player: Player, dmg: Int) {
+        println("Монстр нанёс урон игроку!")
+        player.health -= dmg
+    }
+}
+
+class Game(
+    var player: Player,
+    val monsters: List<Monster> = listOf()
+) {
+    fun start() {
+        println(" Добро пожаловать в игру!\n" +
+                "${player.name} отправляется в опасное приключение!\n" +
+                "На пути стоят зловещие монстры:\n")
+        for (monster in monsters) {
+            println("- ${monster.type} с ${monster.health} здоровья и 10 урона")
+        }
+    }
+}
