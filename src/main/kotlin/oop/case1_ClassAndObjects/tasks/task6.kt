@@ -1,5 +1,7 @@
 package org.example.oop.case1_ClassAndObjects.tasks
 
+import kotlin.random.Random
+
 /*
 
     Классы "Игрок", "Монстр" и "Игра"
@@ -56,14 +58,14 @@ class Player(
     val name: String,
     var health: Int = 100,
     val damage: Int,
+    var isDead: Boolean = false
 ) {
-    fun attack(enemy: Monster) {
-        enemy.takeDamage(this, damage)
-    }
     fun takeDamage(damager: Monster, dmg: Int) {
         if ((health - dmg) <= 0) {
+            isDead = true
             println("${damager.type} побеждает $name!")
         } else {
+            health -= dmg
             println("${damager.type} атакует $name и наносит $dmg урона!\n" +
                     "        У $name осталось $health здоровья.")
         }
@@ -73,18 +75,21 @@ class Player(
 class Monster(
     val type: String,
     var health: Int = 100,
-    val damage: Int
+    val damage: Int,
+    var isDead: Boolean = false
 ) {
-    fun attack(enemy: Player) {
-        enemy.takeDamage(this, damage)
-    }
     fun takeDamage(damager: Player, dmg: Int) {
         if ((health - dmg) <= 0) {
             println("${damager.name} побеждает $type!")
+            isDead = true
         } else {
+            health -= dmg
             println("${damager.name} атакует $type и наносит $dmg урона!\n" +
                     "        У $type осталось $health здоровья.")
         }
+    }
+    fun appear() {
+        println("В бою появился $type!")
     }
 }
 
@@ -92,7 +97,26 @@ class Game(
     val player: Player,
     val monsters: List<Monster> = listOf()
 ) {
+    private fun attack(monster_: Monster): String {
+        val random1 = Random.nextInt(1, 3)
+        when(random1) {
+            1 -> player.takeDamage(monster_, Random.nextInt(5, monster_.damage))
+            2 -> monster_.takeDamage(player, Random.nextInt(5, player.damage))
+        }
+        println()
+        if (player.isDead) {
+            println("Вы проиграли!")
+            println("Вас убил ${monster_.type}")
+            return "Player Died"
+        }
+        if (monster_.isDead) {
+            return "Monster Died"
+        }
+        return "Both Alive"
+    }
+
     fun start() {
+        // Старт
         println("Добро пожаловать в игру!\n" +
                 "Герой отправляется в опасное приключение!\n" +
                 "На пути стоят зловещие монстры: ")
@@ -100,6 +124,27 @@ class Game(
             println("- ${monster.type} с ${monster.health} здоровья и ${monster.damage} урона")
         }
         println()
+        Thread.sleep(5000)
+
+        // Игра
+        for (monster: Monster in monsters) {
+            monster.appear()
+            while (true) {
+                val attackResult = attack(monster)
+                when (attackResult) {
+                    "Player Died" -> return
+                    "Monster Died" -> {
+                        Thread.sleep(3000)
+                        break
+                    }
+                    else -> {
+                        Thread.sleep(2000)
+                    }
+                }
+            }
+            continue
+        }
+        println("${player.name} одержал победу! Все монстры повержены!")
     }
 }
 
