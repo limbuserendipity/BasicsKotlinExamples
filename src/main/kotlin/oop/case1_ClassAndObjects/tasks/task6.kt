@@ -1,5 +1,29 @@
 package org.example.oop.case1_ClassAndObjects.tasks
 
+fun main() {
+    val player1 = Player(
+        name = "Илья",
+        damage = 25
+    )
+
+    val monster1 = Monster(
+        type = "Гоблин",
+        damage = 25
+    )
+
+    val monster2 = Monster(
+        type = "Орк",
+        damage = 25
+    )
+
+    val monster3 = Monster(
+        type = "Дракон",
+        damage = 15
+    )
+    val game = Game(player1, listOf(monster1, monster2, monster3))
+    game.start()
+}
+
 /*
 
     Классы "Игрок", "Монстр" и "Игра"
@@ -64,8 +88,8 @@ class Player(
 
 class Monster(
     val type: String,
-    var health: Int,
-    var damage: Int
+    var health: Int = 50,
+    var damage: Int = 10
 ) {
     fun attack (player: Player, dmg: Int) {
         println("Монстр нанёс урон игроку!")
@@ -73,16 +97,45 @@ class Monster(
     }
 }
 
+class Ork(
+    val type: String,
+    var health: Int = 75,
+    var damage: Int= 15
+) {
+    fun attack (player: Player, dmg: Int) {
+        println("Орк нанёс урон игроку!")
+        player.health -= dmg
+    }
+}
+
+class Dragon(
+    val type: String,
+    var health: Int = 150,
+    var damage: Int = 30
+) {
+    fun attack (player: Player, dmg: Int) {
+        println("Дракон нанёс урон игроку!")
+        player.health -= dmg
+    }
+}
+
 class Game(
     var player: Player,
-    val monsters: List<Monster> = listOf()
+    val monsters: List<Monster> = mutableListOf()
 ) {
     fun start() {
         println(" Добро пожаловать в игру!\n" +
                 "${player.name} отправляется в опасное приключение!\n" +
                 "На пути стоят зловещие монстры:\n")
         for (monster in monsters) {
-            println("- ${monster.type} с ${monster.health} здоровья и 10 урона")
+            println("${monster.type} с ${monster.health} здоровья и ${monster.damage} урона")
         }
+        for (ork in monsters) {
+            println("${ork.type} с ${ork.health} здоровья и ${ork.damage} урона")
+        }
+        for (dragon in monsters) {
+            println("${dragon.type} с ${dragon.health} здоровья и ${dragon.damage} урона")
+        }
+        println("В бою появился ${monsters}")
     }
 }
