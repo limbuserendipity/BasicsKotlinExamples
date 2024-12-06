@@ -56,7 +56,7 @@ import kotlin.random.Random
 
 class Player(
     val name: String,
-    var health: Int = 100,
+    private var health: Int = 100,
     val damage: Int,
     var isDead: Boolean = false
 ) {
@@ -84,7 +84,7 @@ class Monster(
             isDead = true
         } else {
             health -= dmg
-            println("${damager.name} атакует $type и наносит $dmg урона!\n" +
+            println("${damager.name} атакует $type\nа и наносит $dmg урона!\n" +
                     "        У $type осталось $health здоровья.")
         }
     }
@@ -94,22 +94,22 @@ class Monster(
 }
 
 class Game(
-    val player: Player,
-    val monsters: List<Monster> = listOf()
+    private val player: Player,
+    private val monsters: List<Monster> = listOf()
 ) {
-    private fun attack(monster_: Monster): String {
-        val random1 = Random.nextInt(1, 3)
+    private fun attack(monster: Monster): String {
+        val random1 = Random.nextInt(1, 4)
         when(random1) {
-            1 -> player.takeDamage(monster_, Random.nextInt(5, monster_.damage))
-            2 -> monster_.takeDamage(player, Random.nextInt(5, player.damage))
+            1 -> player.takeDamage(monster, Random.nextInt(5, monster.damage))
+            2, 3 -> monster.takeDamage(player, Random.nextInt(5, player.damage))
         }
         println()
         if (player.isDead) {
             println("Вы проиграли!")
-            println("Вас убил ${monster_.type}")
+            println("Вас убил ${monster.type}")
             return "Player Died"
         }
-        if (monster_.isDead) {
+        if (monster.isDead) {
             return "Monster Died"
         }
         return "Both Alive"

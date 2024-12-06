@@ -1,4 +1,5 @@
 package org.example.oop.case1_ClassAndObjects.tasks
+import kotlin.concurrent.thread
 
 /*
 
@@ -38,15 +39,17 @@ class Pet(
     var isAlive: Boolean = true
 ) {
     fun start() {
-        while(true) {
-            Thread.sleep(5000)
-            hungerLevel += 1
-            happinessLevel -= 1
-            if (hungerLevel >= 100) {
-                println("Ваш питомец умер от голода.")
-            }
-            if (happinessLevel <= 0) {
-                println("Ваш питомец умер от нехватки счастья.")
+        thread {
+            while(true) {
+                Thread.sleep(1000)
+                hungerLevel += 1
+                happinessLevel -= 1
+                if (hungerLevel >= 100) {
+                    println("Ваш питомец умер от голода.")
+                }
+                if (happinessLevel <= 0) {
+                    println("Ваш питомец умер от нехватки счастья.")
+                }
             }
         }
     }
@@ -57,15 +60,11 @@ class Pet(
         println("Уровень счастья: $happinessLevel")
         println()
     }
-    fun checkLife() {
-        if (hungerLevel == 100) {
-            println("Ваш питомец умер от голода.")
-
-        }
-    }
     fun play(time: Int) {
         println("Вы играете с вашим питомцем...")
         Thread.sleep((time * 1000).toLong())
+        println("Вы поиграли с вашим питомцем!")
+        println("Текущий уровень счастья: $happinessLevel")
     }
     fun feed(foodCount: Int) {
         if (hungerLevel > 0) {
@@ -86,7 +85,13 @@ fun main() {
         name = "Илья"
     )
     pet1.start()
+    println()
     pet1.play(3)
+    println()
     pet1.feed(8)
-    pet1.status()
+    println()
+    while(true) {
+        Thread.sleep(1000)
+        pet1.status()
+    }
 }
