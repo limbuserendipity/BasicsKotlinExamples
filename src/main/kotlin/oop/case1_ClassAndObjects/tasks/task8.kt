@@ -39,6 +39,32 @@ package org.example.oop.case1_ClassAndObjects.tasks
 
  */
 
+class Product(
+    val name: String,
+    val price: Int
+)
+
+class Cart(
+    var products: MutableList<Product> = mutableListOf()
+) {
+   fun addProduct(product: Product) {
+       products.add(product)
+   }
+    fun getTotalPrice(): Int {
+        var total = 0
+        products.forEach {
+            total += it.price
+        }
+        return total
+    }
+    fun checkout(balance: Int) {
+        if (getTotalPrice() - balance <= 0) {
+            println("Информация о покупке: ")
+            println("Итоговая стоимость: ${getTotalPrice()}")
+        }
+    }
+}
+
 fun main(){
     var balance = 450
 //    val milk = Product("Молоко", 67)
