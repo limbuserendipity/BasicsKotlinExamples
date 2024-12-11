@@ -45,11 +45,11 @@ class Product(
 )
 
 class Cart(
-    var products: MutableList<Product> = mutableListOf()
+    private var products: MutableList<Product> = mutableListOf()
 ) {
-   fun addProduct(product: Product) {
-       products.add(product)
-   }
+    fun addProduct(product: Product) {
+        products.add(product)
+    }
     fun getTotalPrice(): Int {
         var total = 0
         products.forEach {
@@ -57,18 +57,42 @@ class Cart(
         }
         return total
     }
-    fun checkout(balance: Int) {
-        if (getTotalPrice() - balance <= 0) {
+    fun checkout(balance: Int): Int {
+        val totalPrice = getTotalPrice()
+        return if (totalPrice - balance <= 0) {
             println("Информация о покупке: ")
-            println("Итоговая стоимость: ${getTotalPrice()}")
+            println("Итоговая стоимость: $totalPrice")
+            println("Успешно оплачено!")
+            products.clear()
+            balance - totalPrice
+        } else {
+            println("Недостаточно денег!")
+            println("Ваш баланс: $balance")
+            println("Стоимость покупок: $totalPrice")
+            if (totalPrice > balance) {
+                println("Вам не хватило ${totalPrice - balance}")
+            } else {
+                println("Вы переплатили на ${balance - totalPrice}")
+            }
+            balance
         }
     }
 }
 
-fun main(){
+fun main() {
     var balance = 450
-//    val milk = Product("Молоко", 67)
-//    val bread = Product("Хлеб", 45)
-//    val sugar = Product("Сахар", 78)
+    val milk = Product("Молоко", 67)
+    val bread = Product("Хлеб", 45)
+    val sugar = Product("Сахар", 78)
 
+    val cart = Cart()
+
+    cart.addProduct(milk)
+    cart.addProduct(bread)
+    cart.addProduct(sugar)
+
+    println("Общая стоимость: ${cart.getTotalPrice()}")
+
+    balance = cart.checkout(balance)
+    println("Остаток на балансе: $balance")
 }
