@@ -1,29 +1,5 @@
 package org.example.oop.case1_ClassAndObjects.tasks
 
-fun main() {
-    val player1 = Player(
-        name = "Илья",
-        damage = 25
-    )
-
-    val monster1 = Monster(
-        type = "Гоблин",
-        damage = 25
-    )
-
-    val monster2 = Monster(
-        type = "Орк",
-        damage = 25
-    )
-
-    val monster3 = Monster(
-        type = "Дракон",
-        damage = 15
-    )
-    val game = Game(player1, listOf(monster1, monster2, monster3))
-    game.start()
-}
-
 /*
 
     Классы "Игрок", "Монстр" и "Игра"
@@ -137,5 +113,6 @@ class Game(
             println("${dragon.type} с ${dragon.health} здоровья и ${dragon.damage} урона")
         }
         println("В бою появился ${monsters}")
+
     }
 }
