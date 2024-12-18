@@ -2,7 +2,7 @@ package org.example.algorithms
 
 
 fun main(){
-
+    task10()
 }
 
 /*
@@ -15,6 +15,9 @@ Task1: Обратный отсчёт
             Ракета начала запуск!
 */
 fun task1() {
+
+
+
 }
 
 /*
@@ -59,6 +62,15 @@ Task5: Бесконечное умножение
     Подсказка: num = num * 2
 */
 fun task5() {
+    var num = 1
+    while (true){
+        num = num * 2
+        println(num)
+        val answer = readLine()
+        if(answer == "Нет"){
+            break
+        }
+    }
 }
 
 /*
@@ -69,6 +81,7 @@ Task6: Случайные итерации
 
 */
 fun task6() {
+
 }
 
 /*
@@ -81,7 +94,14 @@ Task7: Повторение строк
             n = 5, s = "Hello" -> "HelloHelloHelloHelloHello"
  */
 fun task7(){
-
+    println("Введите число n")
+    val n = readLine()!!.toInt()
+    println("Введите строку s")
+    val s = readLine()
+    repeat(n){
+        print(s)
+    }
+    println()
 }
 
 /*
@@ -97,6 +117,15 @@ Task8: Символ строки
  */
 
 fun task8(){
+    var count = 0
+    val hw = "Hello world"
+
+    repeat(hw.length){
+        if(hw[it] == 'l'){
+            count = count + 1
+        }
+    }
+    println(count)
 }
 
 /*
@@ -108,6 +137,24 @@ Task9: Kakoe CloBo
     если все буквы в слове принадлежат к русскому алфавиту то слово русское
  */
 fun task9(){
+    println("Введите слово")
+    val word = readLine()!!
+    var isEng = true
+    var isRu = true
+    repeat(word.length){
+        if(word[it] !in 'a'..'z'){
+            isEng = false
+        }
+        if(word[it] !in 'а'..'я'){
+            isRu = false
+        }
+    }
+    if(isEng){
+        println("слово английское")
+    }
+    if(isRu){
+        println("слово русское")
+    }
 }
 
 /*
@@ -118,4 +165,13 @@ Task10: Числа Фибоначчи
     Подсказка: Используй цикл, чтобы вывести числа Фибоначчи: 0,1,1,2,3,5,8,13,21,34
 */
 fun task10(){
+    var first = 0
+    var second = 1
+    repeat(10){
+        println(first)
+        val next = first + second
+        first = second
+        second = next
+    }
 }
+
