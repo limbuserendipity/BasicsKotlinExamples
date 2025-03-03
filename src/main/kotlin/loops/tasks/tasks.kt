@@ -1,6 +1,5 @@
-package collections_loops.tasks
+package loops.tasks
 
-import kotlin.random.Random
 
 fun main(){
 

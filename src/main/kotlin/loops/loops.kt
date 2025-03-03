@@ -1,4 +1,4 @@
-package collections_loops
+package loops
 
 /*
     В Kotlin есть три основных типа циклов,

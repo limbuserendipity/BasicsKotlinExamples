@@ -6,7 +6,7 @@ import io.github.serpro69.kfaker.create
 import kotlin.random.Random
 
 fun main(){
-    example3()
+
 }
 
 fun example1(){
@@ -14,6 +14,7 @@ fun example1(){
     val faker = Faker()
     // Создание экземпляра класса Cat
     val cat = faker.cat
+
     println("Имя случайного кота: ${cat.name()}")
     println("Порода случайного кота: ${cat.breed()}")
     println("Место регистрации кота: ${cat.registry()}")
@@ -25,9 +26,10 @@ fun example2(){
         locale = "ru"
         uniqueGeneratorRetryLimit = 100
     })
-
     val name = faker.name
+
     println(name.firstName())
+
 }
 
 fun example3(){
